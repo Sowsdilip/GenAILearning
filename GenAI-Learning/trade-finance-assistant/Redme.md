@@ -19,3 +19,5 @@ Day 2:
 - Configuration management
 - Dependency management
 - Git setup
+- small openai project to connect to llm
+- connected to open router and got some response from a free model.
