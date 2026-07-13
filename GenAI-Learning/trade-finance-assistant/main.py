@@ -10,17 +10,27 @@ print("Model:", os.getenv("MODEL"))
 client = OpenAI(api_key = os.getenv("API_KEY"),
                 base_url = "https://openrouter.ai/api/v1")
 
-question = input("How can I help you today ?")
-
-response = client.chat.completions.create(
-    model = os.getenv("MODEL"),
-    messages = [
+def ask_ai(question):
+    
+    response = client.chat.completions.create(
+        model = os.getenv("MODEL"),
+        temperature = 0.5,
+        messages = [
         {
             "role" : "user",
             "content" : question
         }
-    ]
-)
+        ]
+    )
+    
+    return response.choices[0].message.content
 
-print("\nAI Response:")
-print(response.choices[0].message.content)
+while True:
+  question = input("How can I help you today ?")
+  if question.lower() == "exit":
+     print("good bye")
+     break
+  response = ask_ai(question)         
+
+  print("\nAI Response:")
+  print(response)

@@ -1,0 +1,10 @@
+Important commands learned today
+Command	Purpose
+python --version	Check Python installation
+python -m venv .venv	Create virtual environment
+Activate.ps1	Activate environment
+pip install	Install libraries
+pip list	See installed libraries
+python main.py	Run application
+python -c "import sys; print(sys.executable)"
+pip --version
